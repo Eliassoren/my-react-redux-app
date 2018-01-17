@@ -2,12 +2,11 @@ import React from 'react';
 import { push } from 'react-router-redux';
 import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
-import { counter } from '../components/counter/counter';
 import {
   increment,
   incrementAsync,
   decrement,
-  decrementAsync } from '../components/counter/counter';
+  decrementAsync } from '../../modules/counter';
 const Home = props => (
   <div>
     <h2 className="home-tab">Home</h2>

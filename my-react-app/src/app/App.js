@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
 import logo from '../logo.svg';
 import '../assets/App.css';
-import Home from '../home/Home';
-import About from '../about/About';
+import Home from '../components/home/Home';
+import About from '../components/about/About';
 
 
 class App extends Component {
