@@ -1,15 +1,18 @@
 import React, { Component } from 'react';
 
 class Comp extends Component{
-  data = {'a', 'b', 'c'};
-  render(){
-    return {
-        <div>Component</div>;
-        this.data;
-    }
+  constructor(props){
+    super(props);
   }
-
-  getStuff(){
+  render(){
+    return (
+        <div className="container">
+          <div>Component</div>
+          <div>Id: {this.props.id}</div>
+          <div>Name: {this.props.name}</div>
+          <div>Data: {this.props.data}</div>
+        </div>
+    );
   }
 }
 

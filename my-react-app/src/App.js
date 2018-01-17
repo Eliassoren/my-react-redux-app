@@ -14,7 +14,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <Comp data={1, 2, 3, 4}/>
+        <Comp id={1} name = {'component'} data={[1, 2, 3]}/>
       </div>
     );
   }
