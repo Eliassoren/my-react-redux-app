@@ -7,7 +7,6 @@ class Comp extends Component{
   render(){
     return (
         <div className="container">
-          <div>Component</div>
           <div>Id: {this.props.id}</div>
           <div>Name: {this.props.name}</div>
           <div>Data: {this.props.data}</div>
