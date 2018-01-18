@@ -11,4 +11,7 @@ Have yarn or npm installed.
 [Create React App](https://github.com/facebookincubator/create-react-app)
 and [Redux](https://redux.js.org/)
 
+# Based on
+
+The guide from [Medium](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f)
     
