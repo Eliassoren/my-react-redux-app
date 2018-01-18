@@ -6,7 +6,7 @@ import {
   increment,
   incrementAsync,
   decrement,
-  decrementAsync } from '../../modules/counter';
+  decrementAsync } from '../modules/counter';
 const Home = props => (
   <div>
     <h2 className="home-tab">Home</h2>
