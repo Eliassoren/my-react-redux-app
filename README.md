@@ -8,7 +8,7 @@ Have yarn or npm installed.
     yarn install
     yarn start
 # Built with 
-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app)
+[Create React App](https://github.com/facebookincubator/create-react-app)
 and [Redux](https://redux.js.org/)
 
     
