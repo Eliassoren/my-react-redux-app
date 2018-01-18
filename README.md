@@ -4,7 +4,8 @@ You can find the most recent version of the more detailed React guide [here](htt
 # Prerequisities
 Have yarn or npm installed.
 # Installing & running
-    git clone https://github.com/Eliassoren/my-react-redux-app.git
+    git clone https://github.com/Eliassoren/my-react-redux-app.git 
+    cd my-react-redux-app
     yarn install
     yarn start
 # Built with 
