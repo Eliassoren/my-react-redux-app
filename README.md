@@ -14,5 +14,5 @@ and [Redux](https://redux.js.org/)
 
 # Based on
 
-The guide from [Medium](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f)
+[This guide](https://medium.com/@notrab/getting-started-with-create-react-app-redux-react-router-redux-thunk-d6a19259f71f) from Medium
     
