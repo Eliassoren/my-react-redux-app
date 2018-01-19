@@ -4,7 +4,7 @@
 
 .App-header {
   background-color: #222;
-  height: 150px;
+  height: 6rem;
   padding-top: 1.5rem;
   color: white;
   display: flex;
@@ -13,12 +13,6 @@
   align-items: center;
   align-content: center;
   overflow: hidden;
-}
-
-.App-logo {
-  height: 60px;
-  flex-basis: 100%;
-  flex-grow: 3;
 }
 
 .App-title {
@@ -42,6 +36,7 @@
 .App-about-tab{
   flex-basis: 15%;
 }
+
 .link{
   color: #ffffff;
   text-decoration: none;
@@ -60,9 +55,4 @@
 
 .App-intro {
   font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }

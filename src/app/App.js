@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
-import logo from '../media/logo.svg';
-import '../assets/app.css';
+import logo from '../assets/logo.svg';
+import '../styles/app.css';
 import Home from '../components/home';
 import About from '../components/about';
 
@@ -11,7 +11,6 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">My React App</h1>
           <div className="App-tabs">
             <Link className="App-home-tab App-tab link" to="/">Home</Link>
