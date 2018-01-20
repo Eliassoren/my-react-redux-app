@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import counter from './counterReducer';
+import todoList from "./todoListReducer";
 
 export const history = createHistory();
 

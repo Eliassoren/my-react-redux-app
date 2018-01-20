@@ -7,13 +7,19 @@ import {
   incrementCounterAsync,
   decrementCounter,
   decrementCounterAsync } from '../actions/counterAction';
+import history from '../reducers/store'
+
+const increment = (props) => {
+  console.log(history);
+  return props.incrementCounter;
+}
 const Home = props => (
   <div>
-    <h2 className="home-tab">Home</h2>
+    <h2 className="page-title">Home</h2>
     <h3 className="count"> Count: {props.count}</h3>
 
     <p>
-    <button onClick={props.incrementCounter} disabled={props.isIncrementing}>Increment</button>
+    <button onClick={increment(props)} disabled={props.isIncrementing}>Increment</button>
     <button onClick={props.incrementCounterAsync} disabled={props.isIncrementing}>Async Increment</button>
     </p>
 
