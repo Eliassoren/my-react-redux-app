@@ -3,6 +3,7 @@ import thunk from 'redux-thunk';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import counter from './counterReducer';
+import todoList from "./todoListReducer";
 
 export const history = createHistory();
 
@@ -14,7 +15,8 @@ const middleware = [
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  counter: counter
+  counter: counter,
+  todoList: todoList
 });
 
 const devToolsExtension = (process.env.NODE_ENV === 'development') &&

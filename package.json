@@ -14,9 +14,11 @@
     "redux-thunk": "^2.2.0"
   },
   "devDependencies": {
+    "expect": "^22.1.0",
+    "jest": "^22.1.4",
     "lint-staged": "^6.0.1",
     "prettier": "^1.10.2",
-    "expect": "^22.1.0"
+    "redux-freeze": "^0.1.5"
   },
   "scripts": {
     "start": "react-scripts start",

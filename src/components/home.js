@@ -7,9 +7,11 @@ import {
   incrementCounterAsync,
   decrementCounter,
   decrementCounterAsync } from '../actions/counterAction';
+import history from '../reducers/store'
+
 const Home = props => (
   <div>
-    <h2 className="home-tab">Home</h2>
+    <h2 className="page-title">Home</h2>
     <h3 className="count"> Count: {props.count}</h3>
 
     <p>
