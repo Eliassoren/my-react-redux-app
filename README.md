@@ -11,9 +11,11 @@ Have [Yarn](https://yarnpkg.com/lang/en/) or [npm](https://www.npmjs.com/) insta
     
 # Developing
 To start develop mode
+
     $ yarn start
     
-Build for production
+Build for production\\
+
     $ yarn build
     
 # Built with 
