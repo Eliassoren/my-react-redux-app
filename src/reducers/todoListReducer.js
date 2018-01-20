@@ -5,7 +5,7 @@ const todoList = (state = initialState, action) => {
   switch (action.type){
 
     case 'ADD_TODO_ITEM':
-    console.log("Add")
+
     return [
           ...state,
           {

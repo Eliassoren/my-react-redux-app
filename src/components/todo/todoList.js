@@ -21,10 +21,11 @@ const todoUnorderedList = ({todoList}) => {
     <ul className = "todo-list">
     {
       todoList.map( (item) => {
+        return(
         <TodoItem
           key={item.id}
           {...item}
-        />
+        />)
       })
     }
     </ul>
