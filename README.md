@@ -14,7 +14,7 @@ To start develop mode
 
     $ yarn start
     
-Build for production\\
+Build for production
 
     $ yarn build
     
