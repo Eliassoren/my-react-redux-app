@@ -15,7 +15,8 @@ const middleware = [
 
 const rootReducer = combineReducers({
   routing: routerReducer,
-  counter: counter
+  counter: counter,
+  todoList: todoList
 });
 
 const devToolsExtension = (process.env.NODE_ENV === 'development') &&
