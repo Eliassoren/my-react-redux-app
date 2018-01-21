@@ -1,29 +1,27 @@
 import React from 'react';
-import { bindActionCreators} from 'redux';
+import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
-  editTodoItem,
-  removeTodoItem,
-  toggleTodoItem
+  removeTodoItem
 } from '../../actions/todoListAction';
 import {
   hideDialog
 } from '../../actions/dialogAction';
+import EditTodoForm from './editTodoForm'
 
-const ItemDialog = ( {dispatch, id} ) => (
+const ItemDialog = ( {dispatch, id, isShowing, isHiding} ) => (
   <div className="todo-item-dialog">
-    <button className="dialog-button" >Edit</button>
+    <EditTodoForm />
     <button className="dialog-button" onClick = { () => {
       console.log("Remove "+id+" from dialog")
-      dispatch(removeTodoItem(id))/*.then(() => {
-        dispatch(hideDialog())
-      })*/
-      dispatch(hideDialog())
+      dispatch(hideDialog(id))
+      if(!isHiding)
+      dispatch(removeTodoItem(id)) // Want to use async call here. Hide after delete
     }}>
       Remove
       </button>
     <button className="dialog-button" onClick={ () => {
-      dispatch(hideDialog())
+      dispatch(hideDialog(id))
       }
     }>
     Close
@@ -32,7 +30,9 @@ const ItemDialog = ( {dispatch, id} ) => (
 )
 
 export default connect(
-  (state ) => ({
-    id: state.dialog.dialogProps
+  ( state ) => ({
+    id: state.dialog.dialogProps,
+    isShowing: state.dialog.isShowing,
+    isHiding: state.dialog.isHiding
   })
 )(ItemDialog)

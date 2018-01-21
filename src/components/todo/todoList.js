@@ -9,8 +9,8 @@ import { showDialog } from '../../actions/dialogAction';
 
 let openDialog = false;
 
-const TodoItem = ({text, onClick}) => (
-  <li onClick = {onClick} className="todo-item">
+const TodoItem = ({text, done, onClick}) => (
+  <li onClick = {onClick} className = {(done)?"todo-item done":"todo-item"}>
   { text }
   </li>
 )
@@ -27,7 +27,10 @@ const TodoUnorderedList = ({todoList, dialog, dispatch}) => {
           key={item.id}
           {...item}
           onClick = {()=> {
-            dispatch(showDialog(item.id))
+            if(!dialog.isShowing && !dialog.isHiding){
+              console.log("Showing "+item.id+" from todolist")
+              dispatch(showDialog(item.id))
+            }
           }}
         />)
       })

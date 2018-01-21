@@ -18,10 +18,7 @@ export const editTodoItem = () => {
   }
 }
 
-export const toggleTodoItem = () => {
-  return dispatch => {
-    dispatch({
-      type: 'TOGGLE_TODO_ITEM'
+export const toggleTodoItem = ( id ) => ({
+      type: 'TOGGLE_TODO_ITEM',
+      id: id
     })
-  }
-}
