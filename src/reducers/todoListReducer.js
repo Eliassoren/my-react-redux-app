@@ -16,7 +16,7 @@ const todoList = (state = initialState, action) => {
         ]
 
     case 'REMOVE_TODO_ITEM':
-    return state.filter(({ todoItem }) => todoItem.id !== action.id);
+    return state.filter( todoItem => todoItem.id !== action.id);
 
     case 'EDIT_TODO_ITEM' :
       state.map(todoItem => {

@@ -3,21 +3,22 @@ import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AddTodoForm from './addTodoForm';
-import {
-  editTodoItem,
-  removeTodoItem,
-  toggleTodoItem
-} from '../../actions/todoListAction';
+import TodoItemDialog from './dialogRoot';
+import { showDialog } from '../../actions/dialogAction';
 
 
-const TodoItem = ({text}) => (
-  <li className="todo-item">{ text }</li>
+let openDialog = false;
+
+const TodoItem = ({text, onClick}) => (
+  <li onClick = {onClick} className="todo-item">
+  { text }
+  </li>
 )
 
-const todoUnorderedList = ({todoList}) => {
-  let fakeList = [{id: 1, text: "Test", done: false}]
+const TodoUnorderedList = ({todoList, dialog, dispatch}) => {
   return(
   <div>
+    <TodoItemDialog />
     <ul className = "todo-list">
     {
       todoList.map( (item) => {
@@ -25,13 +26,16 @@ const todoUnorderedList = ({todoList}) => {
         <TodoItem
           key={item.id}
           {...item}
+          onClick = {()=> {
+            dispatch(showDialog(item.id))
+          }}
         />)
       })
     }
     </ul>
   </div>)
 }
-todoUnorderedList.propTypes = {
+TodoUnorderedList.propTypes = {
     todoList: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
@@ -39,18 +43,12 @@ todoUnorderedList.propTypes = {
   }).isRequired).isRequired,
 }
 const mapStateToProps = state => ({
-  todoList: state.todoList
+  todoList: state.todoList,
+  dialog: state.dialog
 })
-
-const mapDispatchToProps = dispatch => bindActionCreators({
-  editTodoItem,
-  removeTodoItem,
-  toggleTodoItem,
-}, dispatch)
 
 const DisplayTodoList =  connect(
   mapStateToProps,
-  mapDispatchToProps
-)(todoUnorderedList)
+)(TodoUnorderedList)
 
 export default DisplayTodoList;
