@@ -56,3 +56,15 @@
 .App-intro {
   font-size: large;
 }
+
+.todo-item{
+  width: 5rem;
+  height: 1rem;
+  z-index: 3;  
+}
+.todoItemDialog{
+  z-index: 2;
+  width: 10rem;
+  height: 7rem;
+  background-color: gray;
+}

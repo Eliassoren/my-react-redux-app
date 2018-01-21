@@ -5,13 +5,10 @@ export const addTodoItem = ( text ) => ({
       text: text
     })
 
-export const removeTodoItem = () => {
-  return dispatch => {
-    dispatch({
-      type: 'REMOVE_TODO_ITEM'
+export const removeTodoItem = ( id ) => ({
+      type: 'REMOVE_TODO_ITEM',
+      id: id
     })
-  }
-}
 
 export const editTodoItem = () => {
   return dispatch => {
