@@ -24,10 +24,12 @@ export const removeTodoItem = ( id ) => {
   }
 
 
-export const editTodoItem = () => {
+export const editTodoItem = ( id, text ) => {
   return dispatch => {
     dispatch({
-      type: 'EDIT_TODO_ITEM'
+      type: 'EDIT_TODO_ITEM',
+      id: id,
+      text: text
     })
   }
 }

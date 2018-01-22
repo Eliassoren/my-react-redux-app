@@ -9,7 +9,7 @@ let EditTodoForm = ( props ) => {
   <form className="dialog-form" onSubmit = { (e) => {
       e.preventDefault();
       if(!input.value) return;
-      props.onSubmit(input.value.trim(), props.id);
+      props.onSubmit(props.id, input.value.trim(), );
       input.value = ''
   }}>
     <input className="edit-input" placeholder="Edit todo item"  ref={(text) => {
@@ -26,9 +26,9 @@ const mapStateToProps = state => ({
 })
 const mapDispatchToProps = dispatch => {
   return {
-      onSubmit: (text, id) => {
+      onSubmit: (id, text) => {
       dispatch(hideDialog(id))
-      dispatch(editTodoItem(text, id))
+      dispatch(editTodoItem(id, text))
     }
   }
 }
