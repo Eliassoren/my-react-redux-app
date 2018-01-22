@@ -4,7 +4,7 @@ import logo from '../assets/logo.svg';
 import '../styles/app.css';
 import Home from '../components/home';
 import About from '../components/about';
-import Todo from '../components/todo/todo';
+import Todo from '../components/todo';
 
 class App extends Component {
   render() {
