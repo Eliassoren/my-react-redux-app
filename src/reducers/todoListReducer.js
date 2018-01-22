@@ -1,4 +1,7 @@
-const initialState = [];
+const initialState = {
+  todoArr: [],
+  isRemoving: false
+};
 
 const todoList = (state = initialState, action) => {
 
@@ -6,20 +9,35 @@ const todoList = (state = initialState, action) => {
 
     case 'ADD_TODO_ITEM':
 
-    return [
+    return {
           ...state,
-          {
-          id: action.id,
-          text: action.text,
-          done: false
-          }
-        ]
+          todoArr: [
+            ...state.todoArr,
+            {
+              id: action.id,
+              text: action.text,
+              done: false
+            }
+         ]
+      }
+
+    case 'REQUEST_REMOVE_TODO_ITEM' :
+        return {
+          ...state,
+          isRemoving: true
+      }
 
     case 'REMOVE_TODO_ITEM':
-    return state.filter( todoItem => todoItem.id !== action.id);
+    let newArr = state.todoArr.filter( todoItem => todoItem.id !== action.id);
+    return {
+      ...state,
+      todoArr: newArr,
+      isRemoving: !state.isRemoving
+    }
+
 
     case 'EDIT_TODO_ITEM' :
-      state.map(todoItem => {
+      newArr = state.todoArr.map(todoItem => {
         if(todoItem.id !== action.id){
           return state;
         }
@@ -30,8 +48,13 @@ const todoList = (state = initialState, action) => {
         }]
       })
 
+      return {
+        ...state,
+        todoArr: newArr
+      }
+
     case 'TOGGLE_TODO_ITEM' :
-      return state.map(todoItem => {
+      newArr = state.todoArr.map(todoItem => {
         if(todoItem.id !== action.id){
           return todoItem;
         }
@@ -39,9 +62,13 @@ const todoList = (state = initialState, action) => {
         return {
           ...todoItem,
           done: !todoItem.done
-        };
-      });
+        }
+      })
 
+    return {
+      ...state,
+      todoArr: newArr
+   }
     default: return state;
   }
 }

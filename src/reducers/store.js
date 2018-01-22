@@ -1,5 +1,6 @@
 import { combineReducers, createStore, applyMiddleware, compose } from 'redux';
 import thunk from 'redux-thunk';
+import logger from 'redux-logger';
 import { routerReducer, routerMiddleware } from 'react-router-redux';
 import createHistory from 'history/createBrowserHistory';
 import counter from './counterReducer';
@@ -10,6 +11,7 @@ export const history = createHistory();
 const enhancers = [];
 const middleware = [
   thunk,
+  logger,
   routerMiddleware(history)
 ];
 
