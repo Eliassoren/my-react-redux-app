@@ -37,20 +37,20 @@ const todoList = (state = initialState, action) => {
 
 
     case 'EDIT_TODO_ITEM' :
-      newArr = state.todoArr.map(todoItem => {
+      let editedArr = state.todoArr.map(todoItem => {
+        console.log("Todo id: "+todoItem.id+" action id: "+action.id)
         if(todoItem.id !== action.id){
-          return state;
+          return todoItem;
         }
-
-        return [{
+        return {
           ...todoItem,
           text: action.text
-        }]
+        }
       })
 
       return {
         ...state,
-        todoArr: newArr
+        todoArr: editedArr
       }
 
     case 'TOGGLE_TODO_ITEM' :
