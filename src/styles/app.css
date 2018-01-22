@@ -41,7 +41,7 @@
   color: #ffffff;
   text-decoration: none;
 }
-.App-tab{
+.App-tab {
   padding: 0.5rem;
   min-height: 3rem;
   font-size: 1.4rem;
@@ -49,7 +49,7 @@
   overflow: hidden;
 }
 
-.App-tab:hover{
+.App-tab:hover {
   background-color: #7f7f7F;
 }
 
@@ -57,14 +57,68 @@
   font-size: large;
 }
 
-.todo-item{
-  width: 5rem;
-  height: 1rem;
-  z-index: 3;  
+.todo-list {
+  width: 20%;
+  margin-left: 40%;
 }
-.todoItemDialog{
-  z-index: 2;
-  width: 10rem;
-  height: 7rem;
+
+.todo-item {
+  width: 100%;
+  text-align: left;
+  height: 1rem;
+  z-index: 3;
+}
+
+.todo-item:hover {
+  cursor: pointer;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.todo-item-dialog {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0.3rem;
+  position: absolute;
+  z-index: 3;
+  margin-top: -3rem;
+  margin-left: calc(35% - 0.3rem);
+  width: 30%;
+  height: 10rem;
   background-color: gray;
+}
+.dialog-form {
+  display: flex;
+  flex-flow: row;
+  height: 1.5rem;
+  flex-basis: 100%;
+}
+
+.edit-button {
+  flex-grow: 1;
+}
+
+.edit-input {
+  flex-grow: 2;
+}
+
+.dialog-button {
+  flex-grow: 1;
+  flex-basis: 30%;
+  height: 1.5rem;
+}
+
+label {
+  height: 1.5rem;
+}
+
+.checkbox {
+  flex-grow: 1;
+  height: 1.5rem;
+}
+
+.hidden {
+  visibility: hidden;
 }

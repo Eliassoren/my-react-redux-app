@@ -7,7 +7,6 @@ import TodoItemDialog from './dialogRoot';
 import { showDialog } from '../../actions/dialogAction';
 
 
-let openDialog = false;
 
 const TodoItem = ({text, done, onClick}) => (
   <li onClick = {onClick} className = {(done)?"todo-item done":"todo-item"}>
@@ -19,7 +18,7 @@ const TodoUnorderedList = ({todoArr, dialog, dispatch}) => {
   return(
   <div>
     <TodoItemDialog />
-    <ul className = "todo-list">
+    <ul className = {dialog.visible?"todo-list hidden":"todo-list"} >
     {
       todoArr.map( (item) => {
         return(

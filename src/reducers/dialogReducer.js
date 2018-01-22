@@ -2,7 +2,8 @@ const initialState = {
   dialogType: null,
   dialogProps: {},
   isShowing: false,
-  isHiding: false
+  isHiding: false,
+  visible: false
 }
 
 const dialog = (state = initialState, action) => {
@@ -11,7 +12,8 @@ const dialog = (state = initialState, action) => {
       return {
         dialogType: action.dialogType,
         dialogProps: action.dialogProps,
-        isShowing: !state.isShowing
+        isShowing: !state.isShowing,
+        visible: true
       }
 
     case 'REQUEST_SHOW_DIALOG' :
@@ -23,7 +25,8 @@ const dialog = (state = initialState, action) => {
     case 'HIDE_DIALOG':
       return {
         ...initialState,
-        isHiding: !state.isHiding
+        isHiding: !state.isHiding,
+        visible: false
       }
 
     case 'REQUEST_HIDE_DIALOG' :

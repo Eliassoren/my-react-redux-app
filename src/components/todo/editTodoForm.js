@@ -1,45 +1,40 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import {
-  editTodoItem,
-  toggleTodoItem
-} from '../../actions/todoListAction';
+import { editTodoItem } from '../../actions/todoListAction';
 import { hideDialog } from '../../actions/dialogAction';
 
-let EditTodoForm = ( {dispatch, id, todoItem } ) => {
+let EditTodoForm = ( props ) => {
   let input;
-  let done = false;
-  if(todoItem) done = todoItem.done
   return (
-  <form className="edit-todo-form" onSubmit = { (e) => {
+  <form className="dialog-form" onSubmit = { (e) => {
       e.preventDefault();
       if(!input.value) return;
-
-      dispatch(editTodoItem(input.value.trim(), id))
+      props.onSubmit(input.value.trim(), props.id);
       input.value = ''
   }}>
-    <input className="input" placeholder="Edit todo item"  ref={(text) => {
+    <input className="edit-input" placeholder="Edit todo item"  ref={(text) => {
         input = text;
     }}/>
-    <button id="editTodoItem" className="button" type="submit" >
+    <button id="editTodoItem" className="edit-button" type="submit" >
       Edit item
     </button>
-    <label>
-    <input type="checkbox" id="doneTodoItem" className="checkbox" checked = { done }
-      onChange={ (e) => {
-        e.preventDefault();
-        dispatch(toggleTodoItem(id))
-    }} />
-    Done
-    </label>
   </form>)
 }
 
+const mapStateToProps = state => ({
+  id: state.dialog.dialogProps
+})
+const mapDispatchToProps = dispatch => {
+  return {
+      onSubmit: (text, id) => {
+      dispatch(hideDialog(id))
+      dispatch(editTodoItem(text, id))
+    }
+  }
+}
 EditTodoForm = connect(
-  ( state ) => ({
-    id: state.dialog.dialogProps,
-    todoItem: state.todoList.todoArr.find( item => item.id === state.dialog.dialogProps )
-  })
+  mapStateToProps,
+  mapDispatchToProps
 )(EditTodoForm);
 
 export default EditTodoForm;
