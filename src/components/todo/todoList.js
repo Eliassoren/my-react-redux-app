@@ -3,7 +3,7 @@ import { bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import AddTodoForm from './addTodoForm';
-import TodoItemDialog from './dialogRoot';
+import TodoItemDialog from './todoItemDialog';
 import { showDialog } from '../../actions/dialogAction';
 
 
@@ -14,19 +14,19 @@ const TodoItem = ({text, done, onClick}) => (
   </li>
 )
 
-const TodoUnorderedList = ({todoArr, dialog, dispatch}) => {
+const TodoUnorderedList = ( props ) => {
   return(
   <div>
     <TodoItemDialog />
-    <ul className = {dialog.visible?"todo-list hidden":"todo-list"} >
+    <ul className = {props.dialog.visible?"todo-list hidden":"todo-list"} >
     {
-      todoArr.map( (item) => {
+      props.todoArr.map( (item) => {
         return(
         <TodoItem
           key={item.id}
           {...item}
-          onClick = {()=> {
-              dispatch(showDialog(item.id))
+          onClick = {() => {
+            props.onTodoItemClick(item.id)
           }}
         />)
       })
@@ -34,6 +34,7 @@ const TodoUnorderedList = ({todoArr, dialog, dispatch}) => {
     </ul>
   </div>)
 }
+
 TodoUnorderedList.propTypes = {
     todoArr: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -46,8 +47,17 @@ const mapStateToProps = state => ({
   dialog: state.dialog
 })
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onTodoItemClick: ( id ) => {
+      dispatch(showDialog(id))
+    }
+  }
+}
+
 const DisplayTodoList =  connect(
   mapStateToProps,
+  mapDispatchToProps
 )(TodoUnorderedList)
 
 export default DisplayTodoList;

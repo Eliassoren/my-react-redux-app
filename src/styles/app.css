@@ -88,7 +88,19 @@
   width: 30%;
   height: 10rem;
   background-color: gray;
+  border: 0.2rem solid #222;
 }
+.todo-item-dialog h2 {
+  flex-basis: 100%;
+  text-align: center;
+}
+
+.todo-form-item {
+  border: 0.05rem solid black;
+  margin: 0.05rem;
+  cursor: pointer;
+}
+
 .dialog-form {
   display: flex;
   flex-flow: row;

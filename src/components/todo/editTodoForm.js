@@ -12,22 +12,22 @@ let EditTodoForm = ( props ) => {
       props.onSubmit(props.id, input.value.trim(), );
       input.value = ''
   }}>
-    <input className="edit-input" placeholder="Edit todo item"  ref={(text) => {
+    <input className="edit-input todo-form-item" placeholder= {props.text} ref={(text) => {
         input = text;
     }}/>
-    <button id="editTodoItem" className="edit-button" type="submit" >
+    <button className="edit-button todo-form-item" type="submit" >
       Edit item
     </button>
   </form>)
 }
 
 const mapStateToProps = state => ({
-  id: state.dialog.dialogProps
+  id: state.dialog.dialogProps,
+  text: state.todoList.todoArr.find( item => item.id === state.dialog.dialogProps).text
 })
 const mapDispatchToProps = dispatch => {
   return {
       onSubmit: (id, text) => {
-      dispatch(hideDialog(id))
       dispatch(editTodoItem(id, text))
     }
   }
