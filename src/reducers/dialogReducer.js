@@ -18,7 +18,7 @@ const dialog = (state = initialState, action) => {
       return {
           ...state,
           isShowing: true
-      }
+     }
 
     case 'HIDE_DIALOG':
       return {

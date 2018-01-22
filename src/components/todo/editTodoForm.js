@@ -4,12 +4,12 @@ import {
   editTodoItem,
   toggleTodoItem
 } from '../../actions/todoListAction';
-import {
-  hideDialog
-} from '../../actions/dialogAction';
+import { hideDialog } from '../../actions/dialogAction';
 
-let EditTodoForm = ( {dispatch, id, done } ) => {
+let EditTodoForm = ( {dispatch, id, todoItem } ) => {
   let input;
+  let done = false;
+  if(todoItem) done = todoItem.done
   return (
   <form className="edit-todo-form" onSubmit = { (e) => {
       e.preventDefault();
@@ -38,7 +38,7 @@ let EditTodoForm = ( {dispatch, id, done } ) => {
 EditTodoForm = connect(
   ( state ) => ({
     id: state.dialog.dialogProps,
-    done: state.todoList[state.dialog.dialogProps].done
+    todoItem: state.todoList.todoArr.find( item => item.id === state.dialog.dialogProps )
   })
 )(EditTodoForm);
 

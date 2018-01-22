@@ -1,14 +1,28 @@
 let nextId = 0;
-export const addTodoItem = ( text ) => ({
-      type: 'ADD_TODO_ITEM',
-      id: nextId++,
-      text: text
-    })
+export const addTodoItem = ( text ) => {
+    return dispatch => {
+        dispatch({
+        type: 'ADD_TODO_ITEM',
+        id: nextId++,
+        text: text
+      })
+    }
+  }
 
-export const removeTodoItem = ( id ) => ({
-      type: 'REMOVE_TODO_ITEM',
-      id: id
-    })
+export const removeTodoItem = ( id ) => {
+    return dispatch => {
+      dispatch({
+        type: 'REQUEST_REMOVE_TODO_ITEM'
+      })
+      return setTimeout( () => {
+        dispatch({
+          type: 'REMOVE_TODO_ITEM',
+          id: id
+        })
+      }, 0)
+    }
+  }
+
 
 export const editTodoItem = () => {
   return dispatch => {
@@ -18,7 +32,9 @@ export const editTodoItem = () => {
   }
 }
 
-export const toggleTodoItem = ( id ) => ({
+export const toggleTodoItem = ( id ) =>{
+    console.log(id+" done [todoListAction]")
+    return({
       type: 'TOGGLE_TODO_ITEM',
       id: id
-    })
+    })}

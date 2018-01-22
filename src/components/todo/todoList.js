@@ -15,22 +15,19 @@ const TodoItem = ({text, done, onClick}) => (
   </li>
 )
 
-const TodoUnorderedList = ({todoList, dialog, dispatch}) => {
+const TodoUnorderedList = ({todoArr, dialog, dispatch}) => {
   return(
   <div>
     <TodoItemDialog />
     <ul className = "todo-list">
     {
-      todoList.map( (item) => {
+      todoArr.map( (item) => {
         return(
         <TodoItem
           key={item.id}
           {...item}
           onClick = {()=> {
-            if(!dialog.isShowing && !dialog.isHiding){
-              console.log("Showing "+item.id+" from todolist")
               dispatch(showDialog(item.id))
-            }
           }}
         />)
       })
@@ -39,14 +36,14 @@ const TodoUnorderedList = ({todoList, dialog, dispatch}) => {
   </div>)
 }
 TodoUnorderedList.propTypes = {
-    todoList: PropTypes.arrayOf(PropTypes.shape({
+    todoArr: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     text: PropTypes.string.isRequired,
     done: PropTypes.bool.isRequired
   }).isRequired).isRequired,
 }
 const mapStateToProps = state => ({
-  todoList: state.todoList,
+  todoArr: state.todoList.todoArr,
   dialog: state.dialog
 })
 
