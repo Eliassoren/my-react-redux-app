@@ -18,6 +18,10 @@ Build for production
 
     $ yarn build
     
+Run tests
+
+    $ yarn test
+    
 # Built with 
 [Create React App](https://github.com/facebookincubator/create-react-app)
 and [Redux](https://redux.js.org/)
