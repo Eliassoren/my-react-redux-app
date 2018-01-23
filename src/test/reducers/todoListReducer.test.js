@@ -11,29 +11,53 @@ import reduxFreeze from 'redux-freeze';
 import expect from 'expect'
 
 
-const testAddTodoItem = () => {
-  const stateBefore = [];
-  const action = {
-    type: 'ADD_TODO',
-    id: 0,
-    text: "Fix this"
-  };
-  const stateAfter = {
-    id: 0,
-    text: "Fix this",
-    done: false
-  };
-  reduxFreeze(action);
-  reduxFreeze(stateBefore);
-};
-expect(
-  todoList(undefined, {
-    type: 'ADD_TODO_ITEM',
-    id: 0,
-    text: "Fix this"
+describe('addTodoItem', () => {
+  it('should add a todo item to state', () => {
+    const stateBefore = {todoArr: [], isRemoving: false};
+    const action = {
+      type: 'ADD_TODO_ITEM',
+      id: 0,
+      text: "Fix this"
+    }
+    const stateAfter = {
+      todoArr: [
+        {
+        id: 0,
+        text: "Fix this",
+        done: false
+        }
+      ],
+      isRemoving: false
+    }
+    reduxFreeze(action);
+    reduxFreeze(stateBefore);
+    expect(
+      todoList(stateBefore, action)
+    ).toEqual(stateAfter)
   })
-).toEqual([{
-  id: 0,
-  text: "Fix this",
-  done: false
-}]);
+})
+
+describe('removeTodoItem', () => {
+  it('should add a todo item to state', () => {
+    const stateBefore = {
+      todoArr: [
+        {
+        id: 0,
+        text: "Fix this",
+        done: false
+        }
+      ],
+      isRemoving: false
+    }
+    const action = {
+      type: 'REMOVE_TODO_ITEM',
+      id: 0
+    }
+    const stateAfter = {todoArr: [], isRemoving: true};
+    reduxFreeze(action);
+    reduxFreeze(stateBefore);
+    expect(
+      todoList(stateBefore, action)
+    ).toEqual(stateAfter)
+  })
+})
