@@ -9,17 +9,17 @@ export const addTodoItem = ( text ) => {
     }
   }
 
+const requestRemove = () => ({
+  type: 'REQUEST_REMOVE_TODO_ITEM'
+})
+
 export const removeTodoItem = ( id ) => {
     return dispatch => {
+      dispatch(requestRemove())
       dispatch({
-        type: 'REQUEST_REMOVE_TODO_ITEM'
-      })
-      return setTimeout( () => {
-        dispatch({
           type: 'REMOVE_TODO_ITEM',
           id: id
-        })
-      }, 0)
+      })
     }
   }
 

@@ -19,7 +19,7 @@ const todoList = (state = initialState, action) => {
               done: false
             }
          ]
-      }
+    }
 
     case 'REQUEST_REMOVE_TODO_ITEM' :
         return {
@@ -38,7 +38,6 @@ const todoList = (state = initialState, action) => {
 
     case 'EDIT_TODO_ITEM' :
       let editedArr = state.todoArr.map(todoItem => {
-        console.log("Todo id: "+todoItem.id+" action id: "+action.id)
         if(todoItem.id !== action.id){
           return todoItem;
         }
