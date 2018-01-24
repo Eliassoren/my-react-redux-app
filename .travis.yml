@@ -4,7 +4,7 @@ node_js:
   - "stable"
   - "6.10.1"
 script:
-  - yarn run lint
-  - yarn test
+  - npm run lint
+  - npm run test
 after_success:
-  - yarn run coverage
+  - npm run coverage
