@@ -22,9 +22,9 @@ describe('addTodoItem', () => {
     const stateAfter = {
       todoArr: [
         {
-        id: 0,
-        text: "Before",
-        done: false
+          id: 0,
+          text: "Before",
+          done: false
         }
       ],
       isRemoving: false
@@ -43,9 +43,9 @@ describe('removeTodoItem', () => {
     const stateBefore = {
       todoArr: [
         {
-        id: 0,
-        text: "Before",
-        done: false
+          id: 0,
+          text: "Before",
+          done: false
         }
       ],
       isRemoving: false
