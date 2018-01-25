@@ -11,17 +11,17 @@ class App extends Component {
     return (
       <div className="app">
         <header className="app-header">
-          <h1 className="app-title"><Link className="link" to="/">My React app</Link></h1>
+          <h2 className="app-title"><Link className="link" to="/">My React app</Link></h2>
           <div className="app-tabs">
             <Link className="app-home-tab app-tab link" to="/">Home</Link>
-            <Link className="app-about-tab app-tab link" to="/about-us">about</Link>
+            <Link className="app-about-tab app-tab link" to="/about-us">About</Link>
             <Link className="app-todo-tab app-tab link" to="/todo-list">Todo</Link>
           </div>
         </header>
 
         <main>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/about-us" component={about}/>
+            <Route exact path="/about-us" component={About}/>
             <Route exapt path="/todo-list" component={Todo}/>
         </main>
       </div>
