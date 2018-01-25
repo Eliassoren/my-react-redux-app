@@ -53,7 +53,7 @@ const todoList = (state = initialState, action) => {
       }
 
     case 'TOGGLE_TODO_ITEM' :
-      newArr = state.todoArr.map(todoItem => {
+      let toggledArr = state.todoArr.map(todoItem => {
         if(todoItem.id !== action.id){
           return todoItem;
         }
@@ -66,7 +66,7 @@ const todoList = (state = initialState, action) => {
 
     return {
       ...state,
-      todoArr: newArr
+      todoArr: toggledArr
    }
     default: return state;
   }
