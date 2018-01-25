@@ -9,19 +9,19 @@ import Todo from '../components/todo';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title"><Link className="link" to="/">My React App</Link></h1>
-          <div className="App-tabs">
-            <Link className="App-home-tab App-tab link" to="/">Home</Link>
-            <Link className="App-about-tab App-tab link" to="/about-us">About</Link>
-            <Link className="App-todo-tab App-tab link" to="/todo-list">Todo</Link>
+      <div className="app">
+        <header className="app-header">
+          <h1 className="app-title"><Link className="link" to="/">My React app</Link></h1>
+          <div className="app-tabs">
+            <Link className="app-home-tab app-tab link" to="/">Home</Link>
+            <Link className="app-about-tab app-tab link" to="/about-us">about</Link>
+            <Link className="app-todo-tab app-tab link" to="/todo-list">Todo</Link>
           </div>
         </header>
 
         <main>
             <Route exact path="/" component={Home}/>
-            <Route exact path="/about-us" component={About}/>
+            <Route exact path="/about-us" component={about}/>
             <Route exapt path="/todo-list" component={Todo}/>
         </main>
       </div>
