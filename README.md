@@ -1,4 +1,9 @@
-This is an app made to test out different functionalities that exist in react and redux. Feel free to clone and base your own project on this one.
+This is an app made to test out different functionalities that exist in react and redux. It contains:
+- Counter with increment and decrement
+- Todo-list with popup dialogs
+- Navigation between pages
+
+Feel free to clone and base your own project on this one.
 
 You can find the most recent version of the more detailed React guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
 # Prerequisities
